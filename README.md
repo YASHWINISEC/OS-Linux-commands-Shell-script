@@ -180,42 +180,6 @@ cat newfile | grep -i -c "hello"
 
 
 
-
-grep -R ubuntu /etc
-## OUTPUT
-```
-grep: unrecognized option: R
-BusyBox v1.31.1 () multi-call binary.
- 
-Usage: grep [-HhnlLoqvsriwFE] [-m N] [-A/B/C N] PATTERN/-e PATTERN.../-f FILE [F
-ILE]...
- 
-Search for PATTERN in FILEs (or stdin)
- 
-        -H      Add 'filename:' prefix
-        -h      Do not add 'filename:' prefix
-        -n      Add 'line_no:' prefix
-        -l      Show only names of files that match
-        -L      Show only names of files that don't match
-        -c      Show only count of matching lines
-        -o      Show only the matching part of line
-        -q      Quiet. Return 0 if PATTERN is found, 1 otherwise
-        -v      Select non-matching lines
-        -s      Suppress open and read errors
-        -r      Recurse
-        -i      Ignore case
-        -w      Match whole words only
-        -x      Match whole lines only
-        -F      PATTERN is a literal (not regexp)
-        -E      PATTERN is an extended regexp
-        -m N    Match up to N times per file
-        -A N    Print N lines of trailing context
-        -B N    Print N lines of leading context
-        -C N    Same as '-A N -B N'
-        -e PTRN Pattern to match
-        -f FILE Read pattern from file
-```
-
 grep -w -n world newfile   
 ## OUTPUT
 ```
@@ -243,51 +207,59 @@ Linux is best in this World
  ```
 egrep -w 'Hello|hello' newfile 
 ## OUTPUT
-
-
-
+```
+Hello world
+hello world
+```
 egrep -w '(H|h)ello' newfile 
 ## OUTPUT
-
-
-
+```
+Hello world
+hello world
+```
 egrep -w '(H|h)ell[a-z]' newfile 
 ## OUTPUT
-
-
-
+```
+Hello world
+hello world
+```
 
 egrep '(^hello)' newfile 
 ## OUTPUT
-
-
-
+```
+hello world
+```
 egrep '(world$)' newfile 
 ## OUTPUT
-
-
-
+```
+Hello world
+hello world
+```
 egrep '(World$)' newfile 
 ## OUTPUT
-
-
+```
+Linux is best in this World
+```
 egrep '((W|w)orld$)' newfile 
 ## OUTPUT
-
-
-
+```
+Hello world
+hello world
+Linux is best in this World
+```
 egrep '[1-9]' newfile 
 ## OUTPUT
-
-
-
+```
+Linux is world number 1
+```
 egrep 'Linux.*world' newfile 
 ## OUTPUT
-
-
+```
+Linux is world number 1
+```
 egrep 'Linux.*World' newfile 
 ## OUTPUT
-
+Linux is best in this World
 
 egrep l{2} newfile
 ## OUTPUT
